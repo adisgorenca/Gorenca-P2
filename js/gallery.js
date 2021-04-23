@@ -81,7 +81,7 @@ var request = new XMLHttpRequest();
 request.onreadystatechange = function () {
 	if (this.readyState == 4 && this.status == 200) {
 		var mJson = JSON.parse(request.responseText);
-		iiterateJSON(mJson);
+		iterateJSON(mJson);
 	}
 };
 request.open("GET", mUrl, true);
