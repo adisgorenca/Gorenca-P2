@@ -33,6 +33,21 @@ function animate() {
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
 function swapPhoto() {
+	if(mCurrentIndex >= mImages.length) {
+		mCurrentIndex = 0;
+	}
+	if(mCurrentIndex < 0) {
+		mCurrentIndex = mImages.length-1;
+	}
+ 	document.getElementById("photo").src = mImages[mCurrentIndex].img;
+	var location = document.getElementsByClassName("location")[0];
+	var description = document.getElementsByClassName("description")[0];
+	var date = document.getElementsByClassName("date")[0];
+	location.innerHTML = "Location: " + mImages[mCurrentIndex].location;
+	description.innerHTML = "Description: " + mImages[mCurrentIndex].description;
+	date.innerHTML = "Date: " + mImages[mCurrentIndex].date;
+	mLastFrameTime = 0;
+	mCurrentIndex += 1;
 	//Add code here to access the #slideShow element.
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
@@ -40,14 +55,18 @@ function swapPhoto() {
 	console.log('swap photo');
 }
 
+function iterateJSON() {
+	for (x = 0; x < mJson.length; x++) {
+		mImages[x] = new GalleryImage();
+		mImages.location = mJson.images[x].imgLocation;
+		mImages.description = mJson.images[x].description;
+		mImages.date = mJson.images[x].date;
+		mImages.img = mJson.images[x].imgPath;
+	}
+};
+
 // Counter for the mImages array
 var mCurrentIndex = 0;
-
-// XMLHttpRequest variable
-var mRequest = new XMLHttpRequest();
-
-// Array holding GalleryImage objects (see below).
-var mImages = [];
 
 // Holds the retrived JSON information
 var mJson;
@@ -55,6 +74,20 @@ var mJson;
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
 var mUrl = '../images.json';
+
+
+// XMLHttpRequest variable
+var request = new XMLHttpRequest();
+request.onreadystatechange = function () {
+	if (this.readyState == 4 && this.status == 200) {
+		var mJson = JSON.parse(request.responseText);
+		iiterateJSON(mJson);
+	}
+};
+request.open("GET", mUrl, true);
+request.send();
+// Array holding GalleryImage objects (see below).
+var mImages = [];
 
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
@@ -67,9 +100,9 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 }
 
 $(document).ready( function() {
-	
+	request();
 	// This initially hides the photos' metadata information
-	$('.details').eq(0).hide();
+	// $('.details').eq(0).hide();
 	
 });
 
@@ -79,14 +112,14 @@ window.addEventListener('load', function() {
 
 }, false);
 
-function GalleryImage(location, description, date, img) {
-	this.imgLocation = location;
-	this.description = description;
-	this.date = date;
-	this.imgPath = img ;
+function GalleryImage() {
+	var location;
+	var description;
+	var date;
+	var img;
+}
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
 	//2. description of photo
 	//3. the date when the photo was taken
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
-}
