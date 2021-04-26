@@ -56,7 +56,7 @@ function swapPhoto() {
 }
 
 function iterateJSON() {
-	for (x = 0; x < mJson.length; x++) {
+	for (x = 0; x < mJson.images.length; x++) {
 		mImages[x] = new GalleryImage();
 		mImages.location = mJson.images[x].imgLocation;
 		mImages.description = mJson.images[x].description;
@@ -80,13 +80,13 @@ var mUrl = '../images.json';
 var request = new XMLHttpRequest();
 request.onreadystatechange = function () {
 	if (this.readyState == 4 && this.status == 200) {
-		var mJson = JSON.parse(request.responseText);
-
+		mJson = JSON.parse(request.responseText);
+		iterateJSON(mJson);
 	}
 };
 request.open("GET", mUrl, true);
 request.send();
-iterateJSON(mJson);
+
 // Array holding GalleryImage objects (see below).
 var mImages = [];
 
