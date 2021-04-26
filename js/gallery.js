@@ -81,11 +81,12 @@ var request = new XMLHttpRequest();
 request.onreadystatechange = function () {
 	if (this.readyState == 4 && this.status == 200) {
 		var mJson = JSON.parse(request.responseText);
-		iterateJSON(mJson);
+
 	}
 };
 request.open("GET", mUrl, true);
 request.send();
+iterateJSON(mJson);
 // Array holding GalleryImage objects (see below).
 var mImages = [];
 
