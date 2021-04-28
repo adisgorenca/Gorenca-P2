@@ -58,10 +58,10 @@ function swapPhoto() {
 function iterateJSON() {
 	for (x = 0; x < mJson.images.length; x++) {
 		mImages[x] = new GalleryImage();
-		mImages.location = mJson.images[x].imgLocation;
-		mImages.description = mJson.images[x].description;
-		mImages.date = mJson.images[x].date;
-		mImages.img = mJson.images[x].imgPath;
+		mImages[x].location = mJson.images[x].imgLocation;
+		mImages[x].description = mJson.images[x].description;
+		mImages[x].date = mJson.images[x].date;
+		mImages[x].img = mJson.images[x].imgPath;
 	}
 };
 
