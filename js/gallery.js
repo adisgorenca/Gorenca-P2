@@ -32,6 +32,16 @@ function animate() {
 
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
+function rotate(){
+	if ($(".moreIndicator").hasClass("rot90")) {
+		$(".moreIndicator").removeClass("rot90").addClass("rot270");
+		$(".details").slideToggle( "slow" );
+	} else {
+		$(".moreIndicator").removeClass("rot270").addClass("rot90");
+		$(".details").slideToggle( "slow" );
+	}
+}
+
 
 
 function swapPhoto() {
@@ -126,3 +136,4 @@ function GalleryImage() {
 	//2. description of photo
 	//3. the date when the photo was taken
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
+
