@@ -88,6 +88,7 @@ var mJson;
 var mUrl = 'images.json';
 
 
+
 // XMLHttpRequest variable
 var request = new XMLHttpRequest();
 request.onreadystatechange = function () {
@@ -125,6 +126,8 @@ window.addEventListener('load', function() {
 
 }, false);
 
+
+
 function GalleryImage() {
 	var location;
 	var description;
@@ -137,3 +140,8 @@ function GalleryImage() {
 	//3. the date when the photo was taken
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
 
+	$("#nextPhoto").position({
+		my: "right bottom",
+		at: "right bottom",
+		of: "#nav"
+	});

@@ -45,9 +45,21 @@ body {
 	font-size: 1.25em;
 }
 
+#photo {
+	width: 100%;
+}
+
 #nav {
 	clear: both;
 	position: relative;
+}
+
+#nav #prevPhoto:hover {
+	opacity: 0.8;
+}
+
+#nav #nextPhoto:hover {
+	opacity: 0.8;
 }
 
 #prevPhoto {
