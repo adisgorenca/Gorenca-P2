@@ -67,6 +67,15 @@ function swapPhoto() {
 	console.log('swap photo');
 }
 
+function nextPhoto() {
+	mCurrentIndex += 1;
+	swapPhoto();
+}
+function prevPhoto() {
+	mCurrentIndex -= 1;
+	swapPhoto();
+}
+
 function iterateJSON() {
 	for (x = 0; x < mJson.images.length; x++) {
 		mImages[x] = new GalleryImage();
@@ -121,7 +130,11 @@ $(document).ready( function() {
 });
 
 window.addEventListener('load', function() {
-	
+	$("#nextPhoto").position({
+		my: "right bottom",
+		at: "right bottom",
+		of: "#nav"
+	});
 	console.log('window loaded');
 
 }, false);
@@ -139,9 +152,3 @@ function GalleryImage() {
 	//2. description of photo
 	//3. the date when the photo was taken
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
-
-	$("#nextPhoto").position({
-		my: "right bottom",
-		at: "right bottom",
-		of: "#nav"
-	});
