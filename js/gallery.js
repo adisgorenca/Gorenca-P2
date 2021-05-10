@@ -42,12 +42,12 @@ function rotate(){
 	}
 }
 
-$("#nextPhoto").click(function nextPhoto() {
+$( "#nextPhoto" ).click(function() {
 	mCurrentIndex += 1;
 	swapPhoto();
 });
 
-$("#prevPhoto").click(function prevPhoto() {
+$( "#prevPhoto" ).click(function() {
 	mCurrentIndex -= 1;
 	swapPhoto();
 });
