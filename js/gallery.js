@@ -42,7 +42,15 @@ function rotate(){
 	}
 }
 
+$("#nextPhoto").click(function nextPhoto() {
+	mCurrentIndex += 1;
+	swapPhoto();
+});
 
+$("#prevPhoto").click(function prevPhoto() {
+	mCurrentIndex -= 1;
+	swapPhoto();
+});
 
 function swapPhoto() {
 	if(mCurrentIndex >= mImages.length) {
@@ -65,15 +73,6 @@ function swapPhoto() {
 	//with a new image from your images array which is loaded 
 	//from the JSON string
 	console.log('swap photo');
-}
-
-function nextPhoto() {
-	mCurrentIndex += 1;
-	swapPhoto();
-}
-function prevPhoto() {
-	mCurrentIndex -= 1;
-	swapPhoto();
 }
 
 function iterateJSON() {
