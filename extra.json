@@ -1,0 +1,34 @@
+{
+  "images": [
+      {
+          "imgPath": "img/places/Centre Spatial Guyanais.jpg",
+          "imgLocation": "Centre Spatial Guyanais",
+          "description": "ESA",
+          "date": "1968-Present"
+      },
+      {
+          "imgPath": "img/places/Cape Canaveral.jpg",
+          "imgLocation": "Cape Canaveral",
+          "description": "NASA",
+          "date": "1963-Present"
+      },
+      {
+          "imgPath": "img/places/Vandenberg Air Force Base.jpg",
+          "imgLocation": "Vandenberg Air Force Base",
+          "description": "NASA",
+          "date": "1941-Present"
+      },
+      {
+          "imgPath": "img/places/Baikonur Cosmodrome.jpg",
+          "imgLocation": "Baikonur Cosmodrome",
+          "description": "Roscosmos",
+          "date": "1955-Present"
+      },
+      {
+          "imgPath": "img/places/Plesetsk Cosmodrome.jpg",
+          "imgLocation": "Plesetsk Cosmodrome",
+          "description": "Roscosmos",
+          "date": "1957-Present"
+      }
+]
+}

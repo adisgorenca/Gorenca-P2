@@ -41,15 +41,17 @@ function rotate(){
 		$(".details").slideToggle( "slow" );
 	}
 }
-
-$( "#nextPhoto" ).click(function() {
-	mCurrentIndex += 1;
-	swapPhoto();
+$(document).ready(function(){
+	$("#nextPhoto").click(function(){
+		swapPhoto();
+	});
 });
 
-$( "#prevPhoto" ).click(function() {
-	mCurrentIndex -= 1;
-	swapPhoto();
+$(document).ready(function(){
+	$("#prevPhoto").click(function(){
+		mCurrentIndex -= 2;
+		swapPhoto();
+	});
 });
 
 function swapPhoto() {
@@ -93,7 +95,7 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'images.json';
+var mUrl = 'extra.json';
 
 
 
