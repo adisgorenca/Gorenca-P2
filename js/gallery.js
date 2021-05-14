@@ -40,6 +40,7 @@ function rotate(){
 		$(".moreIndicator").removeClass("rot270").addClass("rot90");
 		$(".details").slideToggle( "slow" );
 	}
+};
 
 function swapPhoto() {
 	if(mCurrentIndex >= mImages.length) {
@@ -82,7 +83,7 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = '';
+var mUrl;
 
 
 
@@ -114,11 +115,12 @@ $(document).ready( function() {
 	const json = new URLSearchParams(location.search);
 	for (const value of json.values()) {
 		console.log(value);
-		mUrl = json.value;
-		if (mUrl == undefined) {
-			mUrl = images.json;
-		};
+		mUrl = value;
 	}
+	if (mUrl === undefined) {
+		mUrl = "images.json";
+	};
+	console.log(mUrl);
 	$("#nextPhoto").click(function(){
 		swapPhoto();
 	});
@@ -129,7 +131,6 @@ $(document).ready( function() {
 	request();
 	// This initially hides the photos' metadata information
 	// $('.details').eq(0).hide();
-	
 });
 
 window.addEventListener('load', function() {
