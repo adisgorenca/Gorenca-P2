@@ -32,15 +32,6 @@ function animate() {
 
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
-function rotate(){
-	if ($(".moreIndicator").hasClass("rot90")) {
-		$(".moreIndicator").removeClass("rot90").addClass("rot270");
-		$(".details").slideToggle( "slow" );
-	} else {
-		$(".moreIndicator").removeClass("rot270").addClass("rot90");
-		$(".details").slideToggle( "slow" );
-	}
-};
 
 function swapPhoto() {
 	if(mCurrentIndex >= mImages.length) {
@@ -143,7 +134,15 @@ window.addEventListener('load', function() {
 
 }, false);
 
-
+function rotate(){
+	if ($(".moreIndicator").hasClass("rot90")) {
+		$(".moreIndicator").removeClass("rot90").addClass("rot270");
+		$(".details").slideToggle( "slow" );
+	} else {
+		$(".moreIndicator").removeClass("rot270").addClass("rot90");
+		$(".details").slideToggle( "slow" );
+	}
+};
 
 function GalleryImage() {
 	var location;
