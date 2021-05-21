@@ -103,11 +103,13 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 }
 
 $(document).ready( function() {
-	const json = new URLSearchParams(location.search);
-	for (const value of json.values()) {
-		console.log(value);
-		mUrl = value;
-	}
+	 const urlParams = new URLSearchParams(window.location.search);
+
+	  for (const [key, value] of urlParams) {
+	      console.log(`${key}:${value}`);
+	      mUrl = value;
+	  }
+	
 	if (mUrl === undefined) {
 		mUrl = "images.json";
 	};
