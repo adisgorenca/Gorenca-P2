@@ -77,7 +77,7 @@ var mJson;
 var mUrl;
 
 
-
+function fetchJSON() {
 // XMLHttpRequest variable
 var request = new XMLHttpRequest();
 request.onreadystatechange = function () {
@@ -88,7 +88,7 @@ request.onreadystatechange = function () {
 };
 request.open("GET", mUrl, true);
 request.send();
-
+}
 // Array holding GalleryImage objects (see below).
 var mImages = [];
 
@@ -119,6 +119,8 @@ $(document).ready( function() {
 		mCurrentIndex -= 2;
 		swapPhoto();
 	});
+	
+	fetchJSON();
 	// This initially hides the photos' metadata information
 	// $('.details').eq(0).hide();
 });
