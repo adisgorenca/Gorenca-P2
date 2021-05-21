@@ -77,7 +77,7 @@ var mJson;
 var mUrl;
 
 
-
+function fetchJSON() {
 // XMLHttpRequest variable
 var request = new XMLHttpRequest();
 request.onreadystatechange = function () {
@@ -88,7 +88,7 @@ request.onreadystatechange = function () {
 };
 request.open("GET", mUrl, true);
 request.send();
-
+}
 // Array holding GalleryImage objects (see below).
 var mImages = [];
 
@@ -103,11 +103,13 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 }
 
 $(document).ready( function() {
-	const json = new URLSearchParams(location.search);
-	for (const value of json.values()) {
-		console.log(value);
-		mUrl = value;
-	}
+	 const urlParams = new URLSearchParams(window.location.search);
+
+	  for (const [key, value] of urlParams) {
+	      console.log(`${key}:${value}`);
+	      mUrl = value;
+	  }
+	
 	if (mUrl === undefined) {
 		mUrl = "images.json";
 	};
@@ -119,7 +121,8 @@ $(document).ready( function() {
 		mCurrentIndex -= 2;
 		swapPhoto();
 	});
-	request();
+	
+	fetchJSON();
 	// This initially hides the photos' metadata information
 	// $('.details').eq(0).hide();
 });
